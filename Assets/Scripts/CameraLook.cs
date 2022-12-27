@@ -30,7 +30,7 @@ public class CameraLook : MonoBehaviour
 
     void Update()
     {
-        if (Movement3D2.isLockControl)          // 보스 혹은 포탈에 접촉하면 마우스 화면이 잠김.
+        if (Movement3D.isLockControl)          // 보스 혹은 포탈에 접촉하면 마우스 화면이 잠김.
             return;
         
         // 수평 회전.

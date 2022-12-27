@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+[CreateAssetMenu(fileName = "Inventory", menuName = "Game/Inventory")]
+public class Inventory : ScriptableObject
 {
-    List<Item> inven;
-
-    private void Start()
-    {
-        inven = new List<Item>();
-    }
+    public List<Item> itemList;
 
     public void AddItem(Item item)
     {
-        inven.Add(item);
+        itemList.Add(item);
     }
-
 }

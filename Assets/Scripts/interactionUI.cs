@@ -8,9 +8,9 @@ public interface IInteraction
     public string Name { get; }                 // 이름
     public void OnInteract(Transform order);    // 동작
 }
-public class interactionUI : MonoBehaviour
+public class InteractionUI : MonoBehaviour
 {
-    public static interactionUI Instance { get; private set; }
+    public static InteractionUI Instance { get; private set; }
     [SerializeField] GameObject panel;
     [SerializeField] Text hotKeyText;
     [SerializeField] Text interactionText;

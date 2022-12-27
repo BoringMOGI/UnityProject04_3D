@@ -17,10 +17,10 @@ public class ItemObject : MonoBehaviour, IInteraction
     public string Name => item.name;
     public void OnInteract(Transform owner)
     {
-        Inventory inven = owner.GetComponentInParent<Inventory>();
-        if (inven != null)
+        Player player = owner.GetComponent<Player>();
+        if (player != null)
         {
-            inven.AddItem(item);
+            player.OnAddItem(item);
             Destroy(gameObject);
         }
     }

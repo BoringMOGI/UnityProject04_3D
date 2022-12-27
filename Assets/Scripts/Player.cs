@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Inventory inventory;
     [SerializeField] float interactionRadius;
 
     IInteraction target;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     {
         SearchInteraction();
         Interaction();
+        UserInput();
     }       
 
     void SearchInteraction()
@@ -36,18 +38,29 @@ public class Player : MonoBehaviour
                                 // 그렇지 않을 경우 멀리있는 NPC까지 대화가 가능.
         }
     }
-
     void Interaction()  // 상호작용
     {
         if (target == null)        // npc가 null이라면 함수 실행 X
         {
-            interactionUI.Instance.Close();
+            InteractionUI.Instance.Close();
             return;
         }
 
-        interactionUI.Instance.Setup(target);
+        InteractionUI.Instance.Setup(target);
         if (Input.GetKeyDown(KeyCode.F))
             target.OnInteract(transform);
+    }
+    void UserInput()
+    {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            InventoryUI.Instance.Switch();
+        }
+    }
+
+    public void OnAddItem(Item item)
+    {
+        inventory.AddItem(item);
     }
 
     private void OnDrawGizmos()

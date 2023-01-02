@@ -25,12 +25,15 @@ public class InventoryUI : MonoBehaviour
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (i < inven.itemList.Count)
-                    slots[i].Setup(inven.itemList[i]);
-                else
-                    slots[i].Setup(null);
+                slots[i].Setup(inven.itemList[i]);
             }
         }
+
+        if (gameObject.activeSelf)
+            Cursor.lockState = CursorLockMode.None;
+        else
+            Cursor.lockState = CursorLockMode.Locked;
+
 
         return gameObject.activeSelf;
     }

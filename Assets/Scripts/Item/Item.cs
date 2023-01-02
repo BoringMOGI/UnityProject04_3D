@@ -11,6 +11,17 @@ public class Item
     public int power;
     public Sprite itemSprite;
 
+    public bool IsEmpty => itemCode == -1;
+
+    public Item()
+    {
+        name = string.Empty;
+        itemCode = -1;
+        level = -1;
+        power = -1;
+        itemSprite = null;
+    }
+
     public Item(string name, int itemCode, int level, int power, Sprite itemSprite)
     {
         this.name = name;

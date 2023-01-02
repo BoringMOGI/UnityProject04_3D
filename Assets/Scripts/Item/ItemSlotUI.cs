@@ -10,14 +10,14 @@ public class ItemSlotUI : MonoBehaviour
 
     public void Setup(Item item)
     {
-        itemImage.enabled = (item != null);
-        countText.enabled = (item != null);
-        if (item != null)
+        bool isEmpty = item.IsEmpty;
+        itemImage.enabled = !isEmpty;
+        countText.enabled = !isEmpty;
+        if (!isEmpty)
         {
             itemImage.sprite = item.itemSprite;
             countText.text = item.level.ToString();
         }
-        
     }
     
 }

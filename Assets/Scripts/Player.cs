@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
 
     IInteraction target;
 
+    private void Awake()
+    {
+        inventory.Initialize();
+    }
+
     void Update()
     {
         SearchInteraction();

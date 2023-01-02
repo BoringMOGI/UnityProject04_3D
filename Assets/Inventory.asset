@@ -13,13 +13,143 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   itemList:
-  - name: "\uD5C8\uB984\uD55C \uD65C"
-    itemCode: 6
-    level: 1
-    power: 1
-    itemSprite: {fileID: 21300000, guid: f049b8f6e6c70664abce7e9de8fc5a5c, type: 3}
-  - name: "\uADF8\uB0E5 \uC637"
-    itemCode: 5
-    level: 1
-    power: 1
-    itemSprite: {fileID: 21300000, guid: fc8542cdc3ac66d46901a4eca96d7870, type: 3}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}
+  - name: 
+    itemCode: -1
+    level: -1
+    power: -1
+    itemSprite: {fileID: 0}

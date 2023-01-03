@@ -8,9 +8,9 @@ public interface IInteraction
     public string Name { get; }                 // 이름
     public void OnInteract(Transform order);    // 동작
 }
-public class InteractionUI : MonoBehaviour
+public class interactionUI : MonoBehaviour
 {
-    public static InteractionUI Instance { get; private set; }
+    public static interactionUI Instance { get; private set; }
     [SerializeField] GameObject panel;
     [SerializeField] Text hotKeyText;
     [SerializeField] Text interactionText;
@@ -23,6 +23,12 @@ public class InteractionUI : MonoBehaviour
     void Start()
     {
         panel.SetActive(false);         // 처음에 start에서 페널을 꺼준다.
+    }
+
+    private void Update()
+    {
+        if (InventoryUI.Instance.isOpenInven)
+            Close();
     }
 
     public void Setup(IInteraction target)

@@ -6,35 +6,54 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI Instance { get; private set; }
 
-    [SerializeField] Inventory inven;
-    [SerializeField] ItemSlotUI[] slots;
+    [SerializeField] GameObject panel;
+    [SerializeField] RectTransform slotParent;
+    [SerializeField] RectTransform infoPanel;
+
+    ItemSlotUI[] slots;
+
+    public bool isOpenInven => panel.activeSelf;
 
     private void Awake()
     {
-        Instance = this; 
+        Instance = this;
     }
     private void Start()
     {
-        gameObject.SetActive(false);
+        panel.SetActive(false);
+
+        slots = slotParent.GetComponentsInChildren<ItemSlotUI>();
+        infoPanel.gameObject.SetActive(false);
     }
 
-    public bool Switch()
+    public bool Switch(Item[] itemList)
     {
-        gameObject.SetActive(!gameObject.activeSelf);  // On, Off를 반대로 돌린다.
-        if(gameObject.activeSelf)
+        infoPanel.gameObject.SetActive(false);  // 최초에 인벤토리가 열릴때 끄자.
+        panel.SetActive(!panel.activeSelf);     // ON, OFF를 반대로 돌린다.
+
+        if(panel.activeSelf)
         {
             for (int i = 0; i < slots.Length; i++)
-            {
-                slots[i].Setup(inven.itemList[i]);
-            }
+                slots[i].Setup(itemList[i]);
         }
 
-        if (gameObject.activeSelf)
+        // 인벤토리 ui가 나올때 마우스 보이게하기
+        if(panel.activeSelf)                                
             Cursor.lockState = CursorLockMode.None;
         else
             Cursor.lockState = CursorLockMode.Locked;
 
-
-        return gameObject.activeSelf;
+        return panel.activeSelf;
+    }   
+    public void OnSelectedSlot(ItemSlotUI slot)
+    {
+        infoPanel.gameObject.SetActive(true);
+        infoPanel.position = slot.transform.position;
     }
+    public void OnDeselectedSlot()
+    {
+        infoPanel.gameObject.SetActive(false);
+    }
+
 }
+

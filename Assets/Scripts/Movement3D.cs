@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Movement3D : MonoBehaviour
 {
-    
-
     [SerializeField] CharacterController controller;
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
@@ -23,7 +21,7 @@ public class Movement3D : MonoBehaviour
     Vector3 input;          // 유저의 입력 값.
     Vector3 velocity;       // 중력 속도.
     bool isGrounded;        // 땅에 서 있는가?
-    public static bool isLockControl;
+    
 
     private void Start()
     {
@@ -33,14 +31,7 @@ public class Movement3D : MonoBehaviour
     void Update()
     {
         input = Vector3.zero;
-
         isGrounded = Physics.CheckSphere(transform.position, checkGroundRadius, groundMask);
-
-        if (!isLockControl)
-        {
-            Movement();
-            Jump();
-        }
 
         Gravity();
     }
@@ -48,33 +39,32 @@ public class Movement3D : MonoBehaviour
     private void LateUpdate()
     {
         // 이전값을 저장하는 알고리즘.
-        animator.SetFloat("x", input.x);
-        animator.SetFloat("y", input.y);
-        animator.SetBool("isRun", input != Vector3.zero);
+        if (animator != null)
+        {
+            animator.SetFloat("x", input.x);
+            animator.SetFloat("y", input.y);
+            animator.SetBool("isRun", input != Vector3.zero);
+        }
     }
 
 
-    private void Movement()
+    public void Movement(Vector2 _input)
     {
         // 내 기준 정면과 우측 좌표를 더해 방향을 구하고 속도만큼 이동한다.
 
         bool isShift = Input.GetKey(KeyCode.LeftShift);
-        float x = Input.GetAxis("Horizontal") * (isShift ? 1.0f : 0.5f);
-        float y = Input.GetAxis("Vertical") * (isShift ? 1.0f : 0.5f);
+        float x = _input.x * (isShift ? 1.0f : 0.5f);
+        float y = _input.y * (isShift ? 1.0f : 0.5f);
         input = new Vector2(x, y);
 
         Vector3 dir = (transform.right * x) + (transform.forward * y);
         dir.Normalize();
                
         controller.Move(dir * (isShift ? runSpeed : walkSpeed) * Time.deltaTime);
-
-        
-            
-        
     }   
-    private void Jump()
+    public void Jump()
     {
-        if(isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if(isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * GRAVITY);        // 점프를 에드포스를 하지 않아도 역중력을 이용하여 점프
             //rigid.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);

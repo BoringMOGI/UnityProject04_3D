@@ -8,7 +8,7 @@ public class InventoryUI : MonoBehaviour
 
     [SerializeField] GameObject panel;
     [SerializeField] RectTransform slotParent;
-    [SerializeField] RectTransform infoPanel;
+    [SerializeField] ItemInfoPanel infoPanel;
 
     ItemSlotUI[] slots;
 
@@ -47,8 +47,7 @@ public class InventoryUI : MonoBehaviour
     }   
     public void OnSelectedSlot(ItemSlotUI slot)
     {
-        infoPanel.gameObject.SetActive(true);
-        infoPanel.position = slot.transform.position;
+        infoPanel.OnOpenPanel(slot.GetComponent<RectTransform>());
     }
     public void OnDeselectedSlot()
     {
